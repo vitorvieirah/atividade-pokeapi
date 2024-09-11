@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Pokémon</title>
+
+    <style>
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        section {
+            background-color: rgb(253, 175, 175);
+            width: 400px;
+            border-radius: 10px;
+        }
+
+        div {
+            width: 100px;
+            margin-left: 130px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Detalhes do Pokémon</h1>
+        <section>
+            <p>Id: <%= pokemon.id %></p>
+            <p>Nome: <%= pokemon.name %></p>
+            <p>Base experiência: <%= pokemon.base_experience %></p>
+            <p>Altura: <%= pokemon.height %> decímetros</p>
+            <p>É padrão: <%= pokemon.is_default ? 'Sim' : 'Não' %></p>
+            <p>Ordem: <%= pokemon.order %></p>
+            <p>Peso: <%= pokemon.weight %> hectogramas</p>
+            <p>Habilidades:
+            <div>
+                    <ul>
+                        <% pokemon.abilities.forEach(ability => { %>
+                            <li><%= ability.ability.name %></li>
+                        <% }) %>
+                    </ul>
+                </p>
+            </div>
+                <p>Formas:
+            <div>
+                    <ul>
+                        <% pokemon.forms.forEach(form => { %>
+                            <li><%= form.name %></li>
+                        <% }) %>
+                    </ul>
+                </p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
